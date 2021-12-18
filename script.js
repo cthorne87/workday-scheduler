@@ -26,14 +26,14 @@ function colorChange(){
 
     $(".time-block").each(function () {
 
-        var currentHour = moment().hour() - moment.duration(11)
+        var currentHour = moment().hour() - moment.duration(8)
         var currentTime = parseInt($(this).attr("id").split("hour")[1]);
 
         if (currentTime <  currentHour) {
             $(this).removeClass("future", "present");
             $(this).addClass("past");
         }
-        else if (currentTime ===  currentHour) {
+        else if (currentTime === currentHour) {
             $(this).removeClass("past", "future");
             $(this).addClass("present");
         }
@@ -43,7 +43,7 @@ function colorChange(){
         }
     })
 }
-colorChange()
+
 //continuously updates schedule
 var intervalId = window.setInterval(function(){
     colorChange()
